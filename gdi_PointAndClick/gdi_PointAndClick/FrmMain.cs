@@ -36,8 +36,15 @@ namespace gdi_PointAndClick
 
             Rectangle r = new Rectangle(mausposition.X-20, mausposition.Y-20, 40, 40);
 
-            rectangles.Add(r);  // Kurze Variante: rectangles.Add( new Rectangle(...)  );
-
+            for (int i = -20; i <= 40;i++)
+            {
+                mausposition.X+= i;
+                mausposition.Y+= i;
+                if (!rectangles.Contains(r))
+                {
+                    rectangles.Add(new Rectangle(mausposition.X - 20, mausposition.Y - 20, 40, 40)); // Kurze Variante: rectangles.Add( new Rectangle(...)  );
+                }
+            }
             Refresh();
         }
 
